@@ -16,9 +16,12 @@ export default function MyData() {
 
   useEffect(() => {
     const userData = generateDateList("2025-03-20", "2025-03-29");
-    const lastPeriod = new Date("2020-01-01"); // January 1, 2020
-    const cycleLength = 28;
-    const periodLength = 5;
+    const lastPeriodISOString = localStorage.getItem("lastPeriod") as string;
+    const lastPeriod = new Date(lastPeriodISOString);
+    const cycleLength = parseInt(localStorage.getItem("cycleLength") as string);
+    const periodLength = parseInt(
+      localStorage.getItem("periodLength") as string,
+    );
 
     const updatedData = userData.map((el) => {
       const dateInstance = new Date(el.date);

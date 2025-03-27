@@ -8,7 +8,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function OvulationCalculator() {
   const [selectedDate, setSelectedDate] = useState<number>(23);
-  const [currentMonth, setCurrentMonth] = useState<string>("March 2025");
+  const [currentMonth] = useState<string>("March 2025");
   const [cycleLength, setCycleLength] = useState<string>("28");
 
   // Calendar data for March 2025

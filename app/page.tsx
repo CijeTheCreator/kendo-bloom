@@ -13,6 +13,7 @@ import { Card } from "@/components/ui/card";
 import DynamicBlob from "./components/dynamic-blob";
 import FertilityTracker from "./components/fertility-cards";
 import { getCyclePhase } from "@/utils/calculator";
+import { useRouter } from "next/navigation";
 
 // Days of the week
 const DAYS_OF_WEEK = ["M", "T", "W", "T", "F", "S", "S"];
@@ -20,6 +21,7 @@ const DAYS_OF_WEEK = ["M", "T", "W", "T", "F", "S", "S"];
 export default function PeriodTracker() {
   // Reference to the scroll container
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   // State for the current date and selected date
   const [today] = useState(new Date());
@@ -27,9 +29,22 @@ export default function PeriodTracker() {
   const [visibleDates, setVisibleDates] = useState<Date[]>([]);
   const [visibleRange, setVisibleRange] = useState({ start: 0, end: 21 });
 
-  const lastPeriod = new Date("2020-01-01"); // January 1, 2020
-  const cycleLength = 28;
-  const periodLength = 5;
+  if (!localStorage) {
+    return <div>Loading</div>;
+  }
+
+  useEffect(() => {
+    const onboarded = localStorage.getItem("onboarded");
+    if (!(onboarded == "true")) router.push("/onboarding");
+  }, []);
+
+  const onboarded = localStorage.getItem("onboarded");
+  if (onboarded != "true") return <div>Loading</div>;
+
+  const lastPeriodISOString = localStorage.getItem("lastPeriod") as string;
+  const lastPeriod = new Date(lastPeriodISOString);
+  const cycleLength = parseInt(localStorage.getItem("cycleLength") as string);
+  const periodLength = parseInt(localStorage.getItem("periodLength") as string);
 
   const { top, bottom } = getCyclePhase(
     lastPeriod,

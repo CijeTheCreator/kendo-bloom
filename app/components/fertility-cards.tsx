@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 
-import { Calendar, Plus, Search } from "lucide-react";
+import { Plus } from "lucide-react";
 import { Window } from "@progress/kendo-react-dialogs";
 import Logger from "./log";
 import { getInsightParams } from "@/utils/calculator";
@@ -20,9 +20,10 @@ export default function FertilityTracker({
   const [symptomsLogVisible, setSymptomsLogVisible] = useState(false);
   const today = new Date();
 
-  const lastPeriod = new Date("2020-01-01"); // January 1, 2020
-  const cycleLength = 28;
-  const periodLength = 5;
+  const lastPeriodISOString = localStorage.getItem("lastPeriod") as string;
+  const lastPeriod = new Date(lastPeriodISOString);
+  const cycleLength = parseInt(localStorage.getItem("cycleLength") as string);
+  const periodLength = parseInt(localStorage.getItem("periodLength") as string);
 
   const { fertileStart, fertileEnd, nextPeriodStart, ovulationDay } =
     getInsightParams(lastPeriod, cycleLength, periodLength, today);

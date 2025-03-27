@@ -122,6 +122,7 @@ export function getInsightParams(
   while (cycleStart <= currentDate) {
     index++;
     console.log(index);
+
     let cycleEnd = new Date(cycleStart);
     cycleEnd.setDate(cycleStart.getDate() + cycleLength);
 
@@ -138,7 +139,11 @@ export function getInsightParams(
     fertileStart = new Date(ovulationDay);
     fertileStart.setDate(ovulationDay.getDate() - 5);
     fertileEnd = new Date(ovulationDay);
+
+    // **Fix: Move to next cycle**
+    cycleStart.setDate(cycleStart.getDate() + cycleLength);
   }
+
   return {
     fertileStart: formatDate(fertileStart),
     fertileEnd: formatDate(fertileEnd),

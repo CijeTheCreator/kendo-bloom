@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 import { useChat } from "ai/react";
 
-import { ArrowUpIcon } from "lucide-react";
+import { ArrowUpIcon, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Tooltip,
@@ -33,18 +33,20 @@ export function ChatForm({
   };
 
   const header = (
-    <header className="m-auto flex max-w-96 flex-col gap-5 text-center">
-      <h1 className="text-2xl font-semibold leading-none tracking-tight">
-        Basic AI Chatbot Template
-      </h1>
+    <header className="m-auto flex max-w-96 flex-col gap-5 text-center items-center">
+      <div className="flex flex-row items-center gap-2">
+        <h1 className="text-2xl font-semibold leading-none tracking-tight">
+          BloomAI
+        </h1>
+        <Sparkles />
+      </div>
       <p className="text-muted-foreground text-sm">
-        This is an AI chatbot app template built with{" "}
-        <span className="text-foreground">Next.js</span>, the{" "}
-        <span className="text-foreground">Vercel AI SDK</span>, and{" "}
-        <span className="text-foreground">Vercel KV</span>.
+        This is an AI chatbot designed to support you through every phase of
+        your cycle.
       </p>
       <p className="text-muted-foreground text-sm">
-        Connect an API Key from your provider and send a message to get started.
+        Bloom provides expert insights, personalized reminders, and answers to
+        all your cycle-related questions.
       </p>
     </header>
   );
