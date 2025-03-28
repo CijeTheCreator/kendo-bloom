@@ -12,6 +12,7 @@ type Selections = {
 };
 
 export default function MyData() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [populatedUserData, setPopulatedUserData] = useState<any[]>([]);
 
   useEffect(() => {

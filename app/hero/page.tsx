@@ -70,8 +70,8 @@ export default function BloomHero() {
               Why Choose Bloom?
             </h2>
             <p className="text-pink-700 max-w-2xl mx-auto">
-              We're committed to providing accurate, accessible reproductive
-              health information for all women.
+              We&apos;re committed to providing accurate, accessible
+              reproductive health information for all women.
             </p>
           </div>
 

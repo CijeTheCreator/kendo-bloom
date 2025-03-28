@@ -58,7 +58,9 @@ export default function FertilityTracker({
       </Card>
 
       <Card className="p-6 flex flex-col justify-between  bg-pink-100 border-pink-200 shadow-sm">
-        <p className="text-black font-medium">Today's change of pregnancy</p>
+        <p className="text-black font-medium">
+          Today&apos;s change of pregnancy
+        </p>
         <p className="text-pink-500 mt-auto">See update</p>
       </Card>
       {/* Fertile Window Card */}
@@ -90,8 +92,8 @@ export default function FertilityTracker({
         </h2>
 
         <p className="">
-          Ovulation date is the day in a woman's menstrual cycle when an egg is
-          released from the ovary and can potentially be fertilized.
+          Ovulation date is the day in a woman&apos;s menstrual cycle when an
+          egg is released from the ovary and can potentially be fertilized.
         </p>
       </div>
 
@@ -106,8 +108,8 @@ export default function FertilityTracker({
         </h2>
 
         <p className="">
-          The Next Period Date is the date when a women's menstrual cycle is
-          expected to begin again after the previous period.
+          The Next Period Date is the date when a women&apos;s menstrual cycle
+          is expected to begin again after the previous period.
         </p>
       </div>
     </div>

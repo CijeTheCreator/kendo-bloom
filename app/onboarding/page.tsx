@@ -215,7 +215,7 @@ export default function OnboardingFlow() {
                   transition={{ duration: 0.3 }}
                 >
                   <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center">
-                    What's your age group?
+                    What&apos;s your age group?
                   </h1>
 
                   <div className="grid grid-cols-2 gap-4 md:gap-6 lg:gap-8 flex-1 mb-4 md:w-4/5 lg:w-3/4 mx-auto">

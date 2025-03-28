@@ -16,7 +16,7 @@ export default function Logger({
   bottom: string;
   setSelectedDate: (date: Date) => void;
 }) {
-  const [activeTab, setActiveTab] = useState("today");
+  // const [activeTab, setActiveTab] = useState("today");
   const [searchTerm, setSearchTerm] = useState("");
 
   // State to track selected options
@@ -60,7 +60,7 @@ export default function Logger({
     selectedSymptoms,
   ]);
 
-  const normalizeDate = (date: Date) => new Date(date.setHours(0, 0, 0, 0));
+  // const normalizeDate = (date: Date) => new Date(date.setHours(0, 0, 0, 0));
   // Handle confirmation
   const handleConfirm = () => {
     // In a real app, this would save the selections to a database or state management
