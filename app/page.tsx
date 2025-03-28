@@ -28,9 +28,6 @@ export default function PeriodTracker() {
     if (!(onboarded == "true")) router.push("/onboarding");
   }, []);
 
-  const onboarded = localStorage.getItem("onboarded");
-  if (onboarded != "true") return <div>Loading</div>;
-
   const lastPeriodISOString = localStorage.getItem("lastPeriod") as string;
   const lastPeriod = new Date(lastPeriodISOString);
   const cycleLength = parseInt(localStorage.getItem("cycleLength") as string);
@@ -184,6 +181,9 @@ export default function PeriodTracker() {
   if (!localStorage) {
     return <div>Loading</div>;
   }
+
+  const onboarded = localStorage.getItem("onboarded");
+  if (onboarded != "true") return <div>Loading</div>;
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-pink-100">
