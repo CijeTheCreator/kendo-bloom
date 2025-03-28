@@ -178,12 +178,12 @@ export default function PeriodTracker() {
     );
   };
 
-  if (!localStorage) {
-    return <div>Loading</div>;
-  }
-
-  const onboarded = localStorage.getItem("onboarded");
-  if (onboarded != "true") return <div>Loading</div>;
+  // if (!localStorage) {
+  //   return <div>Loading</div>;
+  // }
+  //
+  // const onboarded = localStorage.getItem("onboarded");
+  // if (onboarded != "true") return <div>Loading</div>;
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-pink-100">
