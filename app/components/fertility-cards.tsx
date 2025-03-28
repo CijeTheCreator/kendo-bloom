@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 
 import { Plus } from "lucide-react";
@@ -20,10 +20,18 @@ export default function FertilityTracker({
   const [symptomsLogVisible, setSymptomsLogVisible] = useState(false);
   const today = new Date();
 
-  const lastPeriodISOString = localStorage.getItem("lastPeriod") as string;
+  const [lastPeriodISOString, setLastPeriodISOString] = useState<string>("");
+  const [cycleLength, setCycleLength] = useState<number>(1);
+  const [periodLength, setPeriodLength] = useState<number>(1);
+
+  useEffect(() => {
+    if (!localStorage.getItem("lastPeriod")) return;
+
+    setLastPeriodISOString(localStorage.getItem("lastPeriod") as string);
+    setCycleLength(parseInt(localStorage.getItem("cycleLength") as string));
+    setPeriodLength(parseInt(localStorage.getItem("periodLength") as string));
+  }, []);
   const lastPeriod = new Date(lastPeriodISOString);
-  const cycleLength = parseInt(localStorage.getItem("cycleLength") as string);
-  const periodLength = parseInt(localStorage.getItem("periodLength") as string);
 
   const { fertileStart, fertileEnd, nextPeriodStart, ovulationDay } =
     getInsightParams(lastPeriod, cycleLength, periodLength, today);

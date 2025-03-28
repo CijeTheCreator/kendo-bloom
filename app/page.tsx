@@ -23,14 +23,14 @@ export default function PeriodTracker() {
   const [visibleDates, setVisibleDates] = useState<Date[]>([]);
   const [visibleRange, setVisibleRange] = useState({ start: 0, end: 21 });
 
-  const [lastPeriodISOString, setLastPeriodISOString] = useState<string>("");
-  const [cycleLength, setCycleLength] = useState<number>(1);
-  const [periodLength, setPeriodLength] = useState<number>(1);
-
   useEffect(() => {
     const onboarded = localStorage.getItem("onboarded");
     if (!(onboarded == "true")) router.push("/onboarding");
   }, []);
+
+  const [lastPeriodISOString, setLastPeriodISOString] = useState<string>("");
+  const [cycleLength, setCycleLength] = useState<number>(1);
+  const [periodLength, setPeriodLength] = useState<number>(1);
 
   useEffect(() => {
     if (!localStorage.getItem("lastPeriod")) return;
@@ -39,7 +39,6 @@ export default function PeriodTracker() {
     setCycleLength(parseInt(localStorage.getItem("cycleLength") as string));
     setPeriodLength(parseInt(localStorage.getItem("periodLength") as string));
   }, []);
-
   const lastPeriod = new Date(lastPeriodISOString);
 
   const { top, bottom } = getCyclePhase(
