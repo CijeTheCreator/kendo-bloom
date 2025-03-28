@@ -68,9 +68,9 @@ export default function MyData() {
 }
 
 function generateDateList(startDate: string, endDate: string) {
-  let start = new Date(startDate);
-  let end = new Date(endDate);
-  let dateList = [];
+  const start = new Date(startDate);
+  const end = new Date(endDate);
+  const dateList = [];
 
   while (start <= end) {
     dateList.push({

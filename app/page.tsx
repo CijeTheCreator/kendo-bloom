@@ -1,13 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import {
-  Calendar,
-  Plus,
-  Search,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import DynamicBlob from "./components/dynamic-blob";
@@ -28,10 +22,6 @@ export default function PeriodTracker() {
   const [selectedDate, setSelectedDate] = useState(new Date(today));
   const [visibleDates, setVisibleDates] = useState<Date[]>([]);
   const [visibleRange, setVisibleRange] = useState({ start: 0, end: 21 });
-
-  if (!localStorage) {
-    return <div>Loading</div>;
-  }
 
   useEffect(() => {
     const onboarded = localStorage.getItem("onboarded");
@@ -190,6 +180,10 @@ export default function PeriodTracker() {
       date.getFullYear() === selectedDate.getFullYear()
     );
   };
+
+  if (!localStorage) {
+    return <div>Loading</div>;
+  }
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-pink-100">
